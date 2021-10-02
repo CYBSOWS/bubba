@@ -5,12 +5,12 @@ class Either:
         self.isRight = isRight
 
     def get_right(self):
-        if not isRight:
+        if not self.isRight:
             raise Exception('Either: guard call with Either#is_right')
         return self.right
 
     def get_left(self):
-        if isRight:
+        if self.isRight:
             raise Exception('Either: guard call with Either#is_left')
         return self.right
 
@@ -25,5 +25,5 @@ class Either:
         return Either(None, left, False)
 
     @staticmethod
-    def right(left):
+    def right(right):
         return Either(right, None, True)
