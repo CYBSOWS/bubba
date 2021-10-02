@@ -21,13 +21,10 @@ class Either:
         return not self.isRight
 
     def map(self, rightFn):
-        rightFn(self.get_right())
+        return rightFn(self.get_right())
 
     def fold(self, leftFn, rightFn):
-        if self.isRight:
-            self.map(rightFn)
-        else:
-            leftFn(self.left)
+        return self.isRight ? self.map(rightFn) : left(self.left)
 
     @staticmethod
     def left(left):
