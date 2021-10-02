@@ -20,17 +20,14 @@ class Either:
     def is_left(self):
         return not self.isRight
 
-    def map(self, rigthFn):
-        # apply rightFn to right
-        pass
+    def map(self, rightFn):
+        rightFn(self.get_right())
 
     def fold(self, leftFn, rightFn):
         if self.isRight:
-            # apply rightFn to right
-            pass
+            self.map(rightFn)
         else:
-            # apply leftFn to left
-            pass
+            leftFn(self.left)
 
     @staticmethod
     def left(left):
