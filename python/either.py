@@ -12,7 +12,7 @@ class Either:
     def get_left(self):
         if self.isRight:
             raise Exception('Either: guard call with Either#is_left')
-        return self.right
+        return self.left
 
     def is_right(self):
         return self.isRight
